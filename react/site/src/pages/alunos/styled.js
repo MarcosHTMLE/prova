@@ -13,14 +13,14 @@ const Container = styled.div`
         background-color: white;
         box-shadow: 0px 0px 4px 1px rgba(186, 186, 186, 0.25);
         padding: 2em;
-            
+        height:610px
     }
 
     .bar-new-student {
-        border: 3px solid #986CDF;
+        border: 3px solid #119FDC;
         border-radius: .5em;
         margin-right: .4em;
-        background-color: #986CDF;
+        background-color: #119FDC;;
     }
 
     .text-new-student {
@@ -37,8 +37,39 @@ const Container = styled.div`
         display: flex;
         flex-direction: row;
         padding-top: 2.4em;
+        margin-left:40px;
     }
-
+    #input2{
+        margin-top:10px;
+    }
+    .mae{
+        display:flex;
+        flex-direction: column;
+    }
+    .u-input{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left:5px;
+    }
+    .u-input2{
+        display: flex;
+        flex-direction: row;
+        margin-left:30px;
+        margin-top:15px;
+    }
+    .u-input2 textarea{
+        height:200px;
+        margin-left:20px;
+        width:570px;
+        border-radius:1%;
+    }
+    .input2 input{
+        width:570px;
+    }
+    #esse{
+        margin-top:10px;
+    }
     .agp-input {
         display: flex;
         flex-direction: row;
@@ -80,8 +111,19 @@ const Container = styled.div`
         padding-left: 1em;
         font-weight: 800;
     }
+#foi{
+    margin-left:-10px;
 
-
+}
+#foi spam{
+    padding-right:12px;
+}
+#vai{
+    margin-left:12px;
+}
+#vai spam{
+    padding-right:12px;;
+}
     .number-student {
         font-size: 18px;
         color: #615858;
@@ -92,9 +134,10 @@ const Container = styled.div`
     .class-student {
         font-size: 18px;
         color: #615858;
-        margin-right: 0.8em;
+        margin-right: 0.10em;
         font-weight: 800;
     }
+
 
     .corse-student {
         font-size: 18px;
@@ -102,7 +145,6 @@ const Container = styled.div`
         margin-right: 1em;
         font-weight: 800;
     }
-
 
     .button-create {
         align-self: flex-end;
@@ -114,7 +156,7 @@ const Container = styled.div`
         width: 106px;
         height: 36px;
 
-        background: #E911C6;
+        background: #119FDC;
         border-radius: 44px;
         border: none;
         color: white;
@@ -247,6 +289,7 @@ const Container = styled.div`
         padding: 1em;
         color: #ffff;
         font-weight: 800;
+        background-color: #6CC3DF;
     } 
     
     .table-user {
@@ -260,13 +303,21 @@ const Container = styled.div`
     .coluna-acao {
         width: .1em;
     }
+    .coluna-acao > button {
+        visibility: hidden;
+    }
 
+    tr:hover {
+        .coluna-acao > button {
+        visibility: visible;
+    }
+    }
     button {
         cursor: pointer;
     }
 
     .button-create button:hover {
-        background-color: #aa3997;
+        background-color:#119FDC;
         transition: 2s;
     }
 
@@ -293,7 +344,10 @@ const Container = styled.div`
         border-radius: 50%;
         
     }
-
+    .user-image div{
+        background-color: #119FDC;
+    }
+    
     .user-image img {
         width: 57px;
         height: 57px;
