@@ -25,10 +25,10 @@ export default function Index() {
     const [vl_avaliacao, setVl_avaliacao] = useState('');
     const [ds_produto, setDs_produto] = useState('');
     const [qtd_estoque, setQtd_estoque] = useState('');
-    const [bt_ativo, setBt_ativo] = useState(true);
+
     const [img_produto, setImg_produto] = useState('');
     const [ds_descricao, setDs_descricao] = useState('');
-    const [dt_inclusao, setDt_inclusao] = useState(new Date());
+    
 
     const loading = useRef(null);
 
@@ -55,14 +55,14 @@ export default function Index() {
         
         console.log(loading)
         loading.current.continuousStart();
-        if(nm_produto == '' || ds_categoria == ''  || vl_avaliacao == '' || qtd_estoque == '' || vl_preco_de == ''  || vl_preco_por == '' || img_produto == ''  || ds_descricao == '' )
+        if(nm_produto === '' || ds_categoria === ''  || vl_avaliacao === '' || qtd_estoque === '' || vl_preco_de === ''  || vl_preco_por === '' || img_produto === ''  || ds_descricao === '' )
         return toast.dark("os campos são obrigatórios")
         if(idalterando === 0){
                                  
             if(vl_avaliacao < 0 )
             return toast.dark('Número inválido')
             
-            let r = await api.inserir(nm_produto, ds_categoria, vl_preco_de, vl_preco_por, vl_avaliacao, ds_produto, qtd_estoque, img_produto, bt_ativo, dt_inclusao)
+            let r = await api.inserir(nm_produto, ds_categoria, vl_preco_de, vl_preco_por, vl_avaliacao, ds_produto, qtd_estoque, img_produto)
             if(r.erro){
                 toast.dark(r.erro)
             } else {
@@ -71,7 +71,7 @@ export default function Index() {
            loading.current.complete();
          } else {   
            
-            let r = await api.alterar(idalterando, nm_produto, ds_categoria, vl_preco_de, vl_preco_por, vl_avaliacao, ds_produto, qtd_estoque, img_produto, bt_ativo, dt_inclusao)
+            let r = await api.alterar(idalterando, nm_produto, ds_categoria, vl_preco_de, vl_preco_por, vl_avaliacao, ds_produto, qtd_estoque, img_produto)
             if(r.erro){
                 toast.error(r.erro)
             } else {
@@ -142,7 +142,7 @@ export default function Index() {
                         
                         <div class="text-new-student">
                             <div class="bar-new-student"></div>
-                            <div class="text-new-student">{idalterando == 0 ? "Novo Produto" : "Alterando Produto " + idalterando }</div>
+                            <div class="text-new-student">{idalterando === 0 ? "Novo Produto" : "Alterando Produto " + idalterando }</div>
                         </div>
                     <div class="mae">
                         <div class="input-new-student"> 
@@ -187,7 +187,7 @@ export default function Index() {
                                         <div class="input2"> <textarea type="text" value={ds_descricao} onChange={e=> setDs_descricao(e.target.value)}/> </div> 
                         </div>
 
-                            <div class="button-create"> <button onClick={inserir}> {idalterando == 0 ? "Cadastrar" : "Alterar"} </button> </div>
+                            <div class="button-create"> <button onClick={inserir}> {idalterando === 0 ? "Cadastrar" : "Alterar"} </button> </div>
                         </div>
                     </div>
 
@@ -214,7 +214,7 @@ export default function Index() {
                     
                             <tbody>
                                 {produtos.map((item, i) =>
-                                    <tr class={ i % 2 == 0 ? "linha-alternada" : ""}>
+                                    <tr class={ i % 2 === 0 ? "linha-alternada" : ""}>
                                         <td> <img style={{height:'3em', width:'3em'}} src={item.img_produto} alt="img-produto"/> </td>
                                         <td> {item.id_produto} </td>
                                         <td title={item.nm_produto}>{item.nm_produto != null && item.nm_produto.length >= 25? item.nm_produto.substr(0, 25) + '...': item.nm_produto }</td>
